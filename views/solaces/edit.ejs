@@ -1,0 +1,30 @@
+<% layout("layouts/boilerplate") %> 
+
+
+<body>
+
+    <div class="row mb-5">
+        <h1 class="text-center">Edit Solace</h1>
+        <div class="col-6 offset-3 border shadow-lg p-2">
+            <form action="/solaces/<%=solaces._id%>?_method=PUT" method="POST">
+                <% const locationDetails=solaces.location.split(", ") %> 
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="title" id="title" value="<%=solaces.title %>" class="form-control">
+                <label for="place" class="form-label">Place</label>
+                <input type="text" name="place" id="place" value="<%=locationDetails[0]%>" class="form-control" >
+                <label for="city" class="form-label">City</label>
+                <input type="text" name="city" id="city" value="<%=locationDetails[1]%>" class="form-control">
+                <label for="state" class="form-label">State</label>
+                <input type="text" name="state" id="state" value="<%=locationDetails[2]%>" class="form-control">
+                <label for="description" class="form-label">Describe Your Solace</label>
+                <textarea type="text" name="description" id="description" class="form-control"><%=solaces.description%></textarea>
+                <button class="btn btn-info mt-2 text-light" type="submit">Edit</button>
+                <a  href="/solaces"><button type="button" class="btn btn-secondary mt-2">Back</button></a>
+            </form>
+            
+        </div>
+    </div>
+
+    
+    
+</body>

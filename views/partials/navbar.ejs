@@ -1,0 +1,29 @@
+<nav class="navbar shadow-lg navbar-expand-lg navbar-dark bg-dark position-sticky-top py-1" style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/logo.png" alt="" width="36" height="35" class="d-inline-block align-text-center" style="opacity: 0.8;">
+            Calmity
+          </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link " aria-current="page" href="#">Home</a>
+          <a class="nav-link" href="/solaces">Solaces</a>
+          <a class="nav-link" href="/solaces/new">New Solace</a>
+        </div>
+        <div class="navbar-nav ms-auto">
+          <% if(!user) {%>
+            <a href="/user/login" class="nav-link">Login</a>
+            <a href="/user/register" class="nav-link">Register</a>            
+          <% } else {%> 
+            <a href="/user/logout" class="nav-link">Logout</a>
+          <% } %> 
+          </div>
+      </div>
+    </div>
+</nav>
+
+
+
