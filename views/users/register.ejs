@@ -2,22 +2,23 @@
 
 <body>
 
-    <% if(success.length!==0) {%> 
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Calmity!!</strong> <%= success %> .
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <% } %>
-
-    <% if(error.length!==0) {%> 
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
-            <%= error %> .
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <% } %>
+    
 
     <div class="row mb-5">
+        <% if(success.length!==0) {%> 
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Calmity!!</strong> <%= success %> .
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
+    
+        <% if(error.length!==0) {%> 
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+                <%= error %> .
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
         <h1 class="text-center">Register</h1>
         <div class="col-6 offset-3 border shadow-lg p-3">
             <form action="/user/register" method="post" class="needs-validation" novalidate>

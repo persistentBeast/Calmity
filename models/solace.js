@@ -5,6 +5,10 @@ const SolaceSchema=new Schema({
     title: String,
     description : String,
     location : String,
+    geoLocation : {
+        lat : Number,
+        long : Number,
+    },    
     images: [
         {
             url : String,

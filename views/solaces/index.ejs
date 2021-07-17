@@ -1,27 +1,28 @@
 <% layout("layouts/boilerplate") %> 
 <body>
-    <% if(success.length!==0) {%> 
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
-            <strong>Calmity!!</strong> <%= success %> 
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <% } %>     
     
-    <% if(error.length!==0) {%> 
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
-            <%= error %>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    <% } %>
     <ul>
+        <% if(success.length!==0) {%> 
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+                <strong>Calmity!!</strong> <%= success %> 
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>     
+        
+        <% if(error.length!==0) {%> 
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
+                <%= error %>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <% } %>
         <% for (s of solaces) {%>
 
             <div class="card mb-2 mt-2">
                 <div class="row">
                     <div class="col-md-4">
-                        <img class="img-fluid" src="<%=s.images[0].url %>">
+                        <img class="img" src=<%=s.images[0].url %> style="width: 350px; height: 250px">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

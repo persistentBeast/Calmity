@@ -1,5 +1,13 @@
 const solace=require('../models/solace');
 const Review=require('../models/review');
+const mapboxgl=require('mapbox-gl')
+const mbxGeocoding=require("@mapbox/mapbox-sdk/services/geocoding");
+const geocoder=mbxGeocoding({accessToken: process.env.mapBoxAccessToken});
+
+// mapboxgl.accessToken = 'pk.eyJ1IjoiYmJveTk4MDEiLCJhIjoiY2txbXZqeGFrMGhwcjJvcHE4NXlramNwbSJ9._bfCOn2WhAhzpKCnbhiwFA';
+
+
+
 
 
 module.exports.showAllSolaces = async (req, res, next)=>{
@@ -17,8 +25,14 @@ module.exports.createNewSolace = async (req, res, next)=>{
     }
     let title=req.body.title;
     let location= `${req.body.place}, ${req.body.city}, ${req.body.state}`;
+    // getting geoLocation 
+    let geoData=await geocoder.forwardGeocode({
+        query : location,
+        limit : 1
+    }).send();
+    let geoLocation={ lat: geoData.body.features[0].geometry.coordinates[1], long: geoData.body.features[0].geometry.coordinates[0]};
     let creator = res.locals.user._id;
-    const newSolace= new solace({title, location, description: req.body.description, images: images, creator});
+    const newSolace= new solace({title, location, description: req.body.description, images, creator, geoLocation});
     await newSolace.save();
     req.flash("success", "New Solace Created :)");
     res.redirect("/solaces");
@@ -39,7 +53,7 @@ module.exports.showSolace = async (req, res, next)=>{
 
 module.exports.renderEditSolaceForm = async (req, res, next)=>{
     const solaces= await solace.findById(req.params.id);
-    res.render("solaces/edit", {solaces});
+    res.render("solaces/edit", {solaces, mapboxgl});
 };
 
 module.exports.editSolace = async (req, res, next)=>{

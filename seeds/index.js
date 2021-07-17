@@ -24,6 +24,7 @@ db.once("open", ()=>{
 const seedDB=async()=>{
     await solace.deleteMany({});
     await reviews.deleteMany({});
+    await User.deleteMany({});
     // const placesPrefix=[ "Dusty", "Peaceful", "Charming", "Quiet", "Warm", "Nirvana", "Lovely", "Mesmerizing", "YOLO"];
     // const placesSuffix=["Street", "Lane", "Cafe", "View", "Backyard", "Place", "Park", "Garden", "Orchard"];
     // const Places=["Mayur Vihar", "Green-Park", "Hauz-Khas", "Rohini", "Downtown", "Town", "Gurgaon", "Queens-Park", "Def-Col", "G-K"]
