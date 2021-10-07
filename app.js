@@ -16,6 +16,7 @@ const User = require("./models/user");
 const solace_routes = require("./routes/solaces_routes");
 const review_routes = require("./routes/reviews");
 const user_routes = require("./routes/user");
+const preventInjection = require('express-mongo-sanitize');
 
 // const { findByIdAndDelete } = require("./models/solace");
 
@@ -76,7 +77,13 @@ app.use((req, res, next) =>{
 
 })
 
+//Preventing Mongo Injectiom
+app.use(preventInjection());
+
 // Routes
+app.get('/', (req, res)=>{
+    res.render('home');
+})
 app.use("/solaces", review_routes);
 app.use("/solaces", solace_routes);
 app.use("/user", user_routes);
