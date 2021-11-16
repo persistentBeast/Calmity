@@ -20,8 +20,8 @@ const preventInjection = require('express-mongo-sanitize');
 
 // const { findByIdAndDelete } = require("./models/solace");
 
-
-mongoose.connect('mongodb://localhost:27017/calmity', {
+mongoose.connect('mongodb+srv://WebTech:webtechproject@cluster0.qhaah.mongodb.net/Calmity?retryWrites=true&w=majority'
+, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true
