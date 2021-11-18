@@ -1,4 +1,4 @@
-let Token=mapBoxAccessToken;
+let Token= "pk.eyJ1IjoiYmJveTk4MDEiLCJhIjoiY2txbXZqeGFrMGhwcjJvcHE4NXlramNwbSJ9._bfCOn2WhAhzpKCnbhiwFA";
 mapboxgl.accessToken = Token;
 let map = new mapboxgl.Map({
     container: 'map',
