@@ -20,7 +20,7 @@ const preventInjection = require('express-mongo-sanitize');
 
 // const { findByIdAndDelete } = require("./models/solace");
 
-mongoose.connect('mongodb+srv://calmityProject:abhu1998@cluster0.2vouy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+mongoose.connect(`mongodb+srv://${process.env.MongoDBUsername}:${process.env.MongoDBPassword}@cluster0.2vouy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 , {
     useNewUrlParser: true,
     useCreateIndex: true,
