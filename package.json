@@ -1,11 +1,11 @@
 {
   "name": "calmity",
   "version": "1.0.0",
-  "description": "",
+  "description": "Social Website",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "node app.js"
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
